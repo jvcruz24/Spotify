@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Spotify 300x250</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="ad.size" content="width=300,height=250">
+
+    <!-- DONT FORGET TO IMPORT YOUR FONTS USING FONT GOOGLE -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&family=Roboto:wght@700&display=swap" rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="css/style.css" />
+
+       <script type="text/javascript">
+           function clicktagExit(url) {
+                window.open(url, '_blank');
+            }
+            // Clicktag Implementation Always Here.
+            var clickTag1 = "";
+
+
+       </script>
+</head>
+
+<body>
+    <div id="container">
+        <!--Animation Container-->
+        <div class="wrapper">
+
+            <div id="bg" class="adSize"></div>
+            <div id="female" class="adSize hidden"></div>
+            <div id="headline" class="adSize slideFromLeft"></div>
+            <div id="headline2" class="adSize slideFromLeft"></div>
+            <div id="subheadline" class="adSize slideFromLeft"></div>
+            <div id="button" class="adSize slideFromLeft"></div>
+            <div id="logo" class="adSize slideFromRight"></div>
+
+            <!-- This Hotspot for Clicktag Always At The Bottom -->
+            <a href="javascript:clicktagExit(clickTag1);void(0);"><div id="hotspot" class="hotspot"></div></a>
+        </div>
+
+    </div>
+
+    <!-- <img id="guide1" src="guide/300x250-3.png" style="position:absolute;width:300px;height:250px;opacity:0.5;pointer-events: none; top: 0; left: 0;"> -->
+
+
+    <script src="js/customFunction.js"></script>
+    <script type="text/javascript">
+
+        var images,
+            loadedImage = 0
+
+        function preloadImages() {
+
+            // Declare your images here
+
+            images = new Array(
+                "images/background.png",
+                "images/female.png",
+                "images/headline1.png",
+                "images/headline2.png",
+                "images/subheadline.png",
+                "images/button.png",
+                "images/logo.png"
+            );
+
+            for(var i = 0; i < images.length; i++) {
+                imageObj = new Image();
+                imageObj.src=images[i];
+                imageObj.addEventListener("load",iLoad,false)
+            }
+        }
+
+        function iLoad(){
+            loadedImage++;
+
+            // Use the images as background or etc. here.
+
+            if (images.length == loadedImage) {
+                w('bg').changeStyle('background-image', 'url("' + images[0] + '")');
+                w('female').changeStyle('background-image', 'url("' + images[1] + '")');
+                w('headline').changeStyle('background-image', 'url("' + images[2] + '")');
+                w('headline2').changeStyle('background-image', 'url("' + images[3] + '")');
+                w('subheadline').changeStyle('background-image', 'url("' + images[4] + '")');
+                w('button').changeStyle('background-image', 'url("' + images[5] + '")');
+                w('logo').changeStyle('background-image', 'url("' + images[6] + '")');
+                setTimeout(makeVisible, 500);
+            }
+
+        }
+
+        function makeVisible() {
+            w('container').changeStyle('visibility', 'visible');
+            setTimeout(Anim, 500);
+        }
+
+        //Animation Start Here.
+        function Anim(){
+            w('female').changeStyle('opacity','1');
+            w('headline').changeStyle('transform','translateX(0px)');
+            setTimeout(()=>{
+                w('female').changeStyle('opacity','0');
+                w('headline').changeStyle('transform','translateX(-300px)');
+                w('headline2').changeStyle('transform','translateX(0px)');
+                setTimeout(()=>{
+                    w('subheadline').changeStyle('transform','translateX(0px)');
+                    setTimeout(()=>{
+                        w('button').changeStyle('transform','translateX(0px)');
+                        setTimeout(()=>{
+                            w('logo').changeStyle('transform','translateX(0px)');
+                        },500);
+                    },500);
+                },500);
+            },3500);
+
+
+        }
+
+
+        setTimeout(preloadImages, 1000);
+
+    </script>
+</body>
+</html>

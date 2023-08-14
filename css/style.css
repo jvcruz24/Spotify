@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-font-smoothing: subpixel-antialiased;;
+    -moz-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+a {text-decoration: none;}
+i {font-style: italic;}
+body {
+  -moz-user-select: none;
+}
+
+sub {
+  line-height: 0px;
+  font-size: 60%;
+}
+
+sup {
+  line-height: 0px;
+  font-size: 60%;
+}
+
+div {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -webkit-transform: translateZ(0);
+}
+
+.hotspot {
+    position: absolute;
+    width: 300px;
+    height: 250px;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+}
+
+#container {
+    width: 300px;
+    height: 250px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    border: 1px solid #b5b5b5;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.adSize{
+  width: 300px;
+  height: 250px;
+  background-size: 300px 250px;
+  background-repeat: no-repeat;
+}
+
+.wrapper > div {
+
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -ms-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+
+}
+
+.transition{
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+.hidden{
+    opacity: 0;
+}
+
+.slideFromLeft{
+  transform: translateX(-300px);
+}
+.slideFromRight{
+  transform: translateX(300px);
+}
